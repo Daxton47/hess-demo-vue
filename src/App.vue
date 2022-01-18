@@ -1,22 +1,30 @@
 <template>
   <the-nav></the-nav>
   <router-view></router-view>
+  <the-initial-loader></the-initial-loader>
 </template>
 
 <script>
 import TheNav from './components/layout/TheNav.vue'
+import TheInitialLoader from './components/layout/TheInitialLoader.vue'
 
 export default {
   name: 'App',
   components: {
-    TheNav
+    TheNav,
+    TheInitialLoader
   }
 }
 </script>
 
 <style>
 :root {
-  --clean-green: #ce3a46;
+  --company-color: #ce3a46;
+}
+
+::selection {
+    color: #aaa;
+    background: #282b2d;
 }
 
 html {
@@ -37,7 +45,7 @@ a {
 }
 
 a:hover {
-  color: var(--clean-green) !important;
+  color: var(--company-color) !important;
 }
 
 .fade-enter-from,

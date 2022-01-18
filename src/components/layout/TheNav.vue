@@ -9,19 +9,23 @@
                 <router-link to="/" class="nav-link active">Products</router-link>
             </div>
             <div class="navigation">
-                <router-link to="/" class="nav-link active">Free Quote</router-link>
+                <router-link to="/" class="nav-link active">Services</router-link>
             </div>
             <div class="navigation">
-                <router-link to="/" class="nav-link active">Services</router-link>
+                <router-link to="/" class="nav-link active">Our Team</router-link>
             </div>
         </div>
         <div>
-            <button style="cursor: pointer;" @click="toggleModal">Login / Register</button>
+            <div class="navigation">
+                <router-link to="/" class="nav-link active">Get a Free Quote</router-link>
+            </div>
         </div>
-
-        <base-modal :open="loginIsOpen" :header="false" size="xl">
-        </base-modal>
-
+        <div class="mobile-spacer"></div>
+        <div class="hamburger-container">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
     </nav>
 </template>
 
@@ -68,6 +72,34 @@ export default {
         max-height: 50px;
     }
 
+    #app-nav .hamburger-container,
+    #app-nav .mobile-spacer {
+        display: none;
+    }
+
+    .hamburger-container {
+        width: 30px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+
+        .line {
+            width: 100%;
+            height: 3px;
+            background-color: #222;
+            margin-bottom: 3px;
+            border-radius: 4px;
+        }
+
+    @media (prefers-color-schema: dark) {
+        .fixed-nav {
+            background-color: #222;
+            color: white;
+        }
+    }
+
         nav a {
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -75,6 +107,17 @@ export default {
         }
 
             nav a:hover {
-                color: var(--clean-green) !important;
+                color: var(--company-color) !important;
             }
+
+    @media(max-width: 780px) {
+        #app-nav .navigation {
+            display: none;
+        }
+
+        #app-nav .hamburger-container,
+        #app-nav .mobile-spacer {
+            display: block;
+        }
+    }
 </style>

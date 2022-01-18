@@ -22,7 +22,6 @@
                 <div class="col-lg-9 text-center">
 
                     <h2 class="pb-3 pt-2 underline"></h2>
-                    <p class="brand-blurb">H.E.S.S. Energy Storage Systems is well known as an experienced and professional San Francisco -based lithium power source producer. We provide clients with top of the line services that cater to their specific project needs and management requirements, and all at the most competitive rates. Contact us today and find out how we can help.</p>
                 </div>
             </div>
         </div>
@@ -33,12 +32,12 @@
         </transition>
     </section>
 
-    <section id="product-section" style="margin: 6rem 5rem;">
+    <section id="product-section">
         <div class="container">
             <div class="text-center">
                 <h3 class="section-title">Products</h3>
             </div>
-            <div class="d-flex align-items-start justify-content-around">
+            <div class="product-container">
                 <div class="product-card shadow">
                     <div class="position-relative" style="overflow: hidden; border-top-right-radius: 4px; border-top-left-radius: 4px">
                         <img src="@/assets/img/forklift.jpg" alt="">
@@ -80,6 +79,23 @@
                     </div>
                     <div class="product-progress"></div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-white py-5 mt-5" style="height: 80vh; background-color: #282b2d; color: #fff;">
+        <div class="container">
+            <div class="text-center">
+                <h3 class="section-title">Services</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 my-5">
+        <div class="container">
+            <div class="text-center">
+                <h3 class="section-title">Our Team</h3>
+                <p class="brand-blurb">H.E.S.S. Energy Storage Systems is well known as an experienced and professional San Francisco -based lithium power source producer. We provide clients with top of the line services that cater to their specific project needs and management requirements, and all at the most competitive rates. Contact us today and find out how we can help.</p>
             </div>
         </div>
     </section>
@@ -131,7 +147,7 @@ export default {
         scrollPage() {
             const productSection = document.getElementById('product-section')
             window.scrollTo({
-                top: productSection.offsetTop + 60,
+                top: productSection.offsetTop - 120,
                 left: 0,
                 behavior: 'smooth'
             })
@@ -182,7 +198,7 @@ export default {
         width: 80px;
         height: 80px;
         border-radius: 40px;
-        background-color: var(--clean-green);
+        background-color: var(--company-color);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -200,7 +216,7 @@ export default {
 
     button {
         outline: none;
-        border: 3px solid var(--clean-green);
+        border: 3px solid var(--company-color);
         padding: 0.8rem 1.6rem;
         width: 240px;
         border-radius: 4px;
@@ -220,7 +236,7 @@ export default {
         height: 100%;
         left: 0;
         top: -100%;
-        background-color: var(--clean-green);
+        background-color: var(--company-color);
         transition: all .35s;
         z-index: -1;
     }
@@ -270,13 +286,37 @@ export default {
             transform: scale(1.05);
         }
 
+    #product-section {
+        padding: 4rem 1rem;
+    }
+
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    @media(max-width: 800px) {
+        .product-container {
+            flex-direction: column;
+        }
+    }
+
     .product-card {
         background-color: white;
         padding: 0;
         border-radius: 4px;
         position: relative;
         cursor: pointer;
+        margin-bottom: 1rem;
         width: 400px;
+    }
+    @media(max-width: 700px) {
+        .product-card {
+            width: 100%;
+        }
     }
 
         .product-card p {
@@ -305,7 +345,7 @@ export default {
         left: 0;
         bottom: 0;
         width: 0px;
-        background-color: #a6462e;
+        background-color: var(--company-color);
         height: 4px;
         transition: width .5s ease-out,
                     background-color .5s ease-out;
@@ -313,7 +353,7 @@ export default {
 
     .product-card:hover .product-progress {
         width: 100%;
-        background-color: var(--clean-green);
+        background-color: var(--company-color);
     }
     .product-card:hover img {
         transform: scale(1.1);
