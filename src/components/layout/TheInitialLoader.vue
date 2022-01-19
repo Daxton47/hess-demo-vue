@@ -31,7 +31,7 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #282b2d;
+    background-color: #222335;
     z-index: 10000;
     display: flex;
     align-items: center;

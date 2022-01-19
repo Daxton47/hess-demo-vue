@@ -6,13 +6,13 @@
                 <router-link to="/" class="nav-link active">Home</router-link>
             </div>
             <div class="navigation">
-                <router-link to="/" class="nav-link active">Products</router-link>
+                <router-link to="/" class="nav-link">Products</router-link>
             </div>
             <div class="navigation">
-                <router-link to="/" class="nav-link active">Services</router-link>
+                <router-link to="/" class="nav-link">Services</router-link>
             </div>
             <div class="navigation">
-                <router-link to="/" class="nav-link active">Our Team</router-link>
+                <router-link to="/" class="nav-link">Our Team</router-link>
             </div>
         </div>
         <div>
@@ -88,7 +88,7 @@ export default {
         .line {
             width: 100%;
             height: 3px;
-            background-color: #222;
+            background-color: white;
             margin-bottom: 3px;
             border-radius: 4px;
         }
@@ -99,11 +99,14 @@ export default {
             color: white;
         }
     }
+        .fixed-nav a {
+            color: #444 !important;
+        }
 
         nav a {
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: #444 !important;
+            color: white !important;
         }
 
             nav a:hover {
