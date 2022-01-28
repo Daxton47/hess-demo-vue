@@ -60,7 +60,7 @@
     }
 
     #product-section {
-        padding: 4rem 1rem;
+        padding: 10rem 1rem;
     }
 
     .product-container {

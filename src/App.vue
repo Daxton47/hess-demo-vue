@@ -1,18 +1,32 @@
 <template>
-  <the-nav></the-nav>
+  <the-nav @openContactForm="showContactForm = true"></the-nav>
   <router-view></router-view>
   <the-initial-loader></the-initial-loader>
+  <the-footer></the-footer>
+  <ContactModal />
+  <div class="mobile-chat">
+      <button data-bs-toggle="modal" data-bs-target="#contactModal" class="shadow-lg"><i class="fas fa-comment-alt fa-lg fa-fw"></i></button>
+  </div>
 </template>
 
 <script>
 import TheNav from './components/layout/TheNav.vue'
 import TheInitialLoader from './components/layout/TheInitialLoader.vue'
+import TheFooter from './components/layout/TheFooter.vue'
+import ContactModal from './components/contact/ContactModal.vue'
 
 export default {
   name: 'App',
   components: {
     TheNav,
-    TheInitialLoader
+    TheInitialLoader,
+    TheFooter,
+    ContactModal
+  },
+  data() {
+    return {
+      showContactForm: false
+    }
   }
 }
 </script>
@@ -20,6 +34,8 @@ export default {
 <style>
 :root {
   --company-color: #ce3a46;
+  --company-color-dark: #ad2f39;
+  --dark-background: #222335;
 }
 
 ::selection {
@@ -36,6 +52,23 @@ body {
   margin: 0;
   font-family: Mulish, 'sans-serif' !important;
 }
+
+    .mobile-chat {
+        position: fixed;
+        left: 25px;
+        bottom: 25px;
+        display: none !important;
+    }
+
+        .mobile-chat button {
+            outline: none;
+            border: none;
+            background-color: var(--company-color);
+            color: #fff;
+            width: 72px;
+            height: 72px;
+            border-radius: 36px;
+        }
 
 a {
   color: #666 !important;
@@ -61,6 +94,12 @@ a:hover {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity .3s ease;
+}
+
+@media(max-width: 782px) {
+  .mobile-chat {
+    display: block !important;
+  }
 }
 
 </style>

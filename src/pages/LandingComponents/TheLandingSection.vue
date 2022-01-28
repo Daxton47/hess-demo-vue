@@ -1,5 +1,5 @@
 <template>
-    <section class="landing-section">
+    <section class="landing-section" id="home">
         <div class="container d-flex flex-column py-sm-8 py-md-0 pt-5 pb-2">
             <div class="row align-items-center min-vh-100">
                 <div class="col-12">
@@ -32,10 +32,10 @@ import lottie from 'lottie-web'
 var animation = {}
 
 export default {
+    props: ["isScrolled"],
     data() {
         return {
             direction: 'forward',
-            isScrolled: false
         }
     },
     mounted: function() {
@@ -133,7 +133,7 @@ export default {
             transform: translateY(6px);
         }
 
-    @media(max-width: 600px) {
+    @media(max-width: 784px) {
         .scroll-down-button {
             display: none;
         }

@@ -3,37 +3,67 @@
         <router-link to="/" class="navbar-brand"><img src="@/assets/logos/HessLogo.webp" alt="Hess Energy Solutions" style="width: 60px;"></router-link>
         <div class="d-flex align-items-center">
             <div class="navigation">
-                <router-link to="/" class="nav-link active">Home</router-link>
+                <a href="#home" class="nav-link active">Home</a>
             </div>
             <div class="navigation">
-                <router-link to="/" class="nav-link">Products</router-link>
+                <a href="#product-section" class="nav-link">Products</a>
             </div>
             <div class="navigation">
-                <router-link to="/" class="nav-link">Services</router-link>
+                <a href="#battery-battle" class="nav-link">Batteries</a>
             </div>
             <div class="navigation">
-                <router-link to="/" class="nav-link">Our Team</router-link>
+                <a href="#companySection" class="nav-link">Our Team</a>
             </div>
         </div>
         <div>
             <div class="navigation">
-                <router-link to="/" class="nav-link active">Get a Free Quote</router-link>
+                <a style="cursor: pointer;" @click="$emit('openContactForm')">Get a Free Quote</a>
             </div>
         </div>
         <div class="mobile-spacer"></div>
-        <div class="hamburger-container">
+        <div class="hamburger-container" @click="showSideNav = true">
             <div class="line line-1"></div>
             <div class="line line-2"></div>
             <div class="line line-3"></div>
         </div>
     </nav>
+
+    <transition name="slide-in">
+        <div v-if="showSideNav" class="side-nav">
+            <div class="side-nav-header">
+                <div class="side-nav-logo"></div>
+                <button @click="showSideNav = false">
+                    <i class="fas fa-times fa-lg"></i>
+                </button>
+            </div>
+            <div class="text-white mt-5">
+                <div class="py-4">
+                    <a href="#home" class="text-white"><h5 class="text-center fw-bolder">Home</h5></a>
+                </div>
+                <div class="py-4">
+                    <a href="#product-section" class="text-white"><h5 class="text-center fw-bolder">Products</h5></a>
+                </div>
+                <div class="py-4">
+                    <a href="#battery-battle" class="text-white"><h5 class="text-center fw-bolder">Batteries</h5></a>
+                </div>
+                <div class="py-4">
+                    <a href="#companySection" class="text-white"><h5 class="text-center fw-bolder">Our Team</h5></a>
+                </div>
+                <div class="py-4">
+                    <a href="#" class="text-white"><h5 class="text-center fw-bolder">Contact Us</h5></a>
+                </div>
+            </div>
+        </div>
+    </transition>
 </template>
 
 <script>
 export default {
+    emits: ['openContactForm'],
     data() {
         return {
             loginIsOpen: false,
+            showSideNav: false
         }
     },
     methods: {
@@ -67,9 +97,57 @@ export default {
         transition: all .4s ease;
     }
 
+    .side-nav {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,0.6);
+        backdrop-filter: blur(12px);
+        height: 100vh;
+        z-index: 100000;
+        display: none;
+        font-weight: bolder;
+    }
+
+    @media(max-width: 782px) {
+        .side-nav {
+            display: block;
+        }
+    }
+
+        .side-nav-logo {
+            width: 100px;
+            height: 50px;
+            background-image: url('../../assets/logos/HessLogo.webp');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .side-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            padding: 1rem;
+            border-bottom: 2px solid var(--company-color);
+        }
+        .side-nav-header button {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: white;
+            padding: .5rem;
+        }
+
     .fixed-nav {
         background-color: white;
         max-height: 50px;
+    }
+
+    .fixed-nav .line {
+        background-color: #222335;
     }
 
     #app-nav .hamburger-container,
@@ -113,6 +191,10 @@ export default {
                 color: var(--company-color) !important;
             }
 
+            nav a.active {
+                color: var(--company-color) !important;
+            }
+
     @media(max-width: 780px) {
         #app-nav .navigation {
             display: none;
@@ -122,5 +204,15 @@ export default {
         #app-nav .mobile-spacer {
             display: block;
         }
+    }
+
+    .slide-in-enter-active {
+        transition: transform .4s ease-in;
+    }
+    .slide-in-enter-from {
+        transform: translateX(100%);
+    }
+    .slide-in-enter-to {
+        transform: translateX(0px);
     }
 </style>
