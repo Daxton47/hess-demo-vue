@@ -18,7 +18,7 @@
                         <i class="fas fa-envelope"></i><a href="mailto:whess@hessprecisionlaser.com" class="ms-2">whess@hessprecisionlaser.com</a>
                     </div>
                     <div class="d-flex align-items-center mt-2">
-                        <i class="fas fa-phone-alt"></i><a href="tel:(801)999-9999" class="ms-2">+1 (801) 999-9999</a>
+                        <i class="fas fa-phone-alt"></i><a href="tel:+1(209)402-3044" class="ms-2">+1 (209) 402-3044</a>
                     </div>
                     <div class="d-flex align-items-center mt-2">
                         <i class="fas fa-map-marker-alt"></i><a class="ms-2" target="_blank" href="https://www.google.com/maps/place/511+Galaxy+Way,+Modesto,+CA+95356/@37.7078702,-121.0022279,18.25z/data=!4m5!3m4!1s0x809050c53479aa83:0x8985b493f76d156!8m2!3d37.7079839!4d-121.0008849">511 Galaxy Way<br>Modesto, Stanislaus County 95356<br>USA</a>
