@@ -1,6 +1,6 @@
 <template>
     <div class="modal fade" id="contactModal" data-bs-backdrop="static" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-lg">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Contact Us</h5>

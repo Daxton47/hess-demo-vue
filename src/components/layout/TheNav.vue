@@ -3,21 +3,21 @@
         <router-link to="/" class="navbar-brand"><img src="@/assets/logos/HessLogo.webp" alt="Hess Energy Solutions" style="width: 60px;"></router-link>
         <div class="d-flex align-items-center">
             <div class="navigation">
-                <a href="#home" class="nav-link active">Home</a>
+                <a href="#home" class="nav-link active landing-nav" id="navHome">Home</a>
             </div>
             <div class="navigation">
-                <a href="#product-section" class="nav-link">Products</a>
+                <a href="#product-section" class="nav-link landing-nav" id="navProducts">Products</a>
             </div>
             <div class="navigation">
-                <a href="#battery-battle" class="nav-link">Batteries</a>
+                <a href="#battery-battle" class="nav-link landing-nav" id="navBatteries">Batteries</a>
             </div>
             <div class="navigation">
-                <a href="#companySection" class="nav-link">Our Team</a>
+                <a href="#companySection" class="nav-link landing-nav" id="navTeam">Our Team</a>
             </div>
         </div>
         <div>
             <div class="navigation">
-                <a style="cursor: pointer;" @click="$emit('openContactForm')">Get a Free Quote</a>
+                <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#contactModal">Get a Free Quote</a>
             </div>
         </div>
         <div class="mobile-spacer"></div>
@@ -38,19 +38,19 @@
             </div>
             <div class="text-white mt-5">
                 <div class="py-4">
-                    <a href="#home" class="text-white"><h5 class="text-center fw-bolder">Home</h5></a>
+                    <a href="#home" class="text-white landing-nav" id="navMobileHome"><h5 class="text-center fw-bolder">Home</h5></a>
                 </div>
                 <div class="py-4">
-                    <a href="#product-section" class="text-white"><h5 class="text-center fw-bolder">Products</h5></a>
+                    <a href="#product-section" class="text-white landing-nav" id="navMobileProducts"><h5 class="text-center fw-bolder">Products</h5></a>
                 </div>
                 <div class="py-4">
-                    <a href="#battery-battle" class="text-white"><h5 class="text-center fw-bolder">Batteries</h5></a>
+                    <a href="#battery-battle" class="text-white landing-nav" id="navMobileBatteries"><h5 class="text-center fw-bolder">Batteries</h5></a>
                 </div>
                 <div class="py-4">
-                    <a href="#companySection" class="text-white"><h5 class="text-center fw-bolder">Our Team</h5></a>
+                    <a href="#companySection" class="text-white landing-nav" id="navMobileTeam"><h5 class="text-center fw-bolder">Our Team</h5></a>
                 </div>
                 <div class="py-4">
-                    <a href="#" class="text-white"><h5 class="text-center fw-bolder">Contact Us</h5></a>
+                    <a href="#" @click="showSideNav = false" class="text-white" data-bs-toggle="modal" data-bs-target="#contactModal"><h5 class="text-center fw-bolder">Contact Us</h5></a>
                 </div>
             </div>
         </div>
@@ -209,10 +209,16 @@ export default {
     .slide-in-enter-active {
         transition: transform .4s ease-in;
     }
-    .slide-in-enter-from {
+    .slide-in-leave-active {
+        transition: transform .4s ease-out;
+    }
+
+    .slide-in-enter-from,
+    .slide-in-leave-to {
         transform: translateX(100%);
     }
-    .slide-in-enter-to {
+    .slide-in-enter-to,
+    .slide-in-leave-from {
         transform: translateX(0px);
     }
 </style>

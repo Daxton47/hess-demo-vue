@@ -240,7 +240,6 @@ export default {
         font-weight: bold;
         /*background: rgb(206,58,70);
         background: linear-gradient(315deg, rgba(206,58,70,1) 0%, rgba(255,96,110,1) 100%);*/
-        border-radius: 80px;
     }
 
         .team-hess h4 {
@@ -251,7 +250,6 @@ export default {
         padding: .8rem 3rem;
         /*background: rgb(38,108,157);
         background: linear-gradient(315deg, rgba(38,108,157,1) 0%, rgba(96,177,255,1) 100%);*/
-        border-radius: 80px;
     }
 
         .team-acid h4 {
@@ -260,14 +258,25 @@ export default {
 
     .lithium-col {
         background-color: var(--company-color);
-        border-top-left-radius: 40px;
-        border-bottom-left-radius: 40px;
         text-align: end;
         box-shadow: inset 0 0 #222;
         user-select: none;
         transition: transform .4s ease;
         cursor: pointer;
         color: white;
+        border-right: 10px solid var(--company-color-dark);
+        position: relative;
+    }
+
+    .lithium-col::after {
+        content: " ";
+        position: absolute;
+        width: 30px;
+        height: 93px;
+        background-color: #dcdfe2;
+        left: 10px;
+        top: -6px;
+        transform: translateX(-100%) rotate(-15deg);
     }
     .comparison-col {
         background-color: transparent;
@@ -281,14 +290,25 @@ export default {
     }
     .acid-col {
         background-color: rgb(45, 127, 185);
-        border-top-right-radius: 40px;
-        border-bottom-right-radius: 40px;
         user-select: none;
         transition: transform .4s ease;
         cursor: pointer;
         color: white;
+        border-left: 10px solid #236594;
+        position: relative;
     }
 
+    /* Lol, Clip path wouldn't work with varying heights */
+    .acid-col::after {
+        content: " ";
+        position: absolute;
+        width: 30px;
+        height: 93.5px;
+        background-color: #dcdfe2;
+        right: 10px;
+        top: -6px;
+        transform: translateX(100%) rotate(15deg);
+    }
     .lithium-col:hover {
         transform: scale(1.03);
     }

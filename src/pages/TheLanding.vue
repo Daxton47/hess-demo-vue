@@ -37,8 +37,46 @@ export default {
         }
     },
     mounted: function() {
+        var productRect = document.getElementById("product-section").getBoundingClientRect()
+        var productSectionLocationTop = productRect.top + window.scrollY
+        var productSectionLocationBottom = productRect.bottom + window.scrollY
+
+        var batteriesRect = document.getElementById('battery-battle').getBoundingClientRect()
+        var batteriesLocationTop = batteriesRect.top + window.scrollY
+        var batteriesLocationBottom = batteriesRect.bottom + window.scrollY
+
+        var companyRect = document.getElementById('companySection').getBoundingClientRect()
+        var companyTop = companyRect.top + window.scrollY
+        var companyBottom = companyRect.bottom + window.scrollY
+
+        var landingNavs = document.getElementsByClassName('landing-nav')
+
+        // Had to implement my own scroll-spy since Bootstrap 5 wasn't working with Vue 3
         window.addEventListener('scroll', () => {
             this.pageScrolled = window.scrollY > 40
+            for (var i = 0; i < landingNavs.length; i++) {
+                landingNavs[i].classList.remove("active")
+            }
+
+            if (window.scrollY < productSectionLocationTop) {
+                var navHome = document.getElementById("navHome")
+                navHome.classList.add("active")
+            }
+            else if (window.scrollY >= productSectionLocationTop &&
+                    window.scrollY < productSectionLocationBottom) {
+                var navProduct = document.getElementById("navProducts")
+                navProduct.classList.add("active")
+            }
+            else if (window.scrollY > batteriesLocationTop &&
+                    window.scrollY < batteriesLocationBottom) {
+                var navBatteries = document.getElementById("navBatteries")
+                navBatteries.classList.add("active")
+            }
+            else if (window.scrollY > companyTop &&
+                    window.scrollY < companyBottom) {
+                var navCompany = document.getElementById("navTeam")
+                navCompany.classList.add("active")
+            }
         })
     }
 }
