@@ -57,12 +57,13 @@
     }
 
     #hessLogo {
-        width: 80px;
-        height: 80px;
-        background: url('../../assets/logos/HessLogo.webp');
+        width: 140px;
+        height: 140px;
+        background: url('../../assets/logos/hess-logo-white.svg');
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;
+        margin-top: -40px;
     }
 
     .contact-us i {

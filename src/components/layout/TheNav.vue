@@ -1,15 +1,15 @@
 <template>
     <nav id="app-nav" class="d-flex align-items-center justify-content-between">
-        <router-link to="/" class="navbar-brand"><img src="@/assets/logos/HessLogo.webp" alt="Hess Energy Solutions" style="width: 60px;"></router-link>
+        <router-link to="/" class="navbar-brand"><img src="@/assets/logos/hess-logo.png" alt="Hess Energy Solutions" style="width: 140px;"></router-link>
         <div class="d-flex align-items-center">
             <div class="navigation">
                 <a href="#home" class="nav-link active landing-nav" id="navHome">Home</a>
             </div>
             <div class="navigation">
-                <a href="#product-section" class="nav-link landing-nav" id="navProducts">Products</a>
+                <a href="#battery-intro" class="nav-link landing-nav" id="navBatteries">Batteries</a>
             </div>
             <div class="navigation">
-                <a href="#battery-battle" class="nav-link landing-nav" id="navBatteries">Batteries</a>
+                <a href="#product-section" class="nav-link landing-nav" id="navProducts">Forklifts</a>
             </div>
             <div class="navigation">
                 <a href="#companySection" class="nav-link landing-nav" id="navTeam">Our Team</a>
@@ -41,7 +41,7 @@
                     <a href="#home" class="text-white landing-nav" id="navMobileHome"><h5 class="text-center fw-bolder">Home</h5></a>
                 </div>
                 <div class="py-4">
-                    <a href="#product-section" class="text-white landing-nav" id="navMobileProducts"><h5 class="text-center fw-bolder">Products</h5></a>
+                    <a href="#product-section" class="text-white landing-nav" id="navMobileProducts"><h5 class="text-center fw-bolder">Forklifts</h5></a>
                 </div>
                 <div class="py-4">
                     <a href="#battery-battle" class="text-white landing-nav" id="navMobileBatteries"><h5 class="text-center fw-bolder">Batteries</h5></a>
@@ -117,9 +117,8 @@ export default {
     }
 
         .side-nav-logo {
-            width: 100px;
-            height: 50px;
-            background-image: url('../../assets/logos/HessLogo.webp');
+            width: 140px;
+            background-image: url('../../assets/logos/hess-logo.png');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: contain;

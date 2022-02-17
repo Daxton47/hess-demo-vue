@@ -51,9 +51,9 @@ export default {
     },
     methods: {
         scrollPage() {
-            const productSection = document.getElementById('product-section')
+            const batteryIntro = document.getElementById('battery-intro')
             window.scrollTo({
-                top: productSection.offsetTop - 120,
+                top: batteryIntro.offsetTop - 120,
                 left: 0,
                 behavior: 'smooth'
             })
@@ -69,13 +69,24 @@ export default {
     .landing-section {
         height: 100vh;
         width: 100%;
-        background-position: top top;
         background-repeat: no-repeat;
-        background-image: url('../../assets/img/AngularBackground.png');
+        background-image: url('../../assets/img/windmill-calm.jpg');
         background-color: #222335;
         background-size: cover;
         background-attachment: fixed;
         position: relative;
+        background-position: 80% 80%;
+    }
+
+    @media(max-width: 2000px) {
+        .landing-section {
+            background-position: 10% 10%;
+        }
+    }
+    @media(max-width: 1400px) {
+        .landing-section {
+            background-position: 5% 5%;
+        }
     }
 
     .branding-display {

@@ -81,6 +81,12 @@ a:hover {
   color: var(--company-color) !important;
 }
 
+hr {
+  border-top: 2px solid var(--company-color) !important;
+  opacity: 1 !important;
+  margin-top: .5rem !important;
+}
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0

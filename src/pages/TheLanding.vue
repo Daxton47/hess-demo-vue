@@ -1,8 +1,9 @@
 <template>
     <div class="position-relative" data-bs-spy="scroll" data-bs-target="#app-nav">
         <TheLandingSection :isScrolled="pageScrolled" />
-        <TheProductSection />
+        <TheBatteryIntroduction />
         <TheBatteryBattle />
+        <TheProductSection />
         <section id="companySection">
             <div class="container text-white">
                 <div class="text-center display-container">
@@ -20,12 +21,14 @@
 
 <script>
 import TheLandingSection from './LandingComponents/TheLandingSection.vue'
+import TheBatteryIntroduction from './LandingComponents/TheBatteryIntroduction.vue'
 import TheProductSection from './LandingComponents/TheProductSection.vue'
 import TheBatteryBattle from './LandingComponents/TheBatteryBattle.vue'
 
 export default {
     components: {
         TheLandingSection,
+        TheBatteryIntroduction,
         TheProductSection,
         TheBatteryBattle
     },

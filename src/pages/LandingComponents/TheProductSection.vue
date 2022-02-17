@@ -2,7 +2,7 @@
     <section id="product-section">
         <div class="container">
             <div class="text-center">
-                <h3 class="section-title">Products</h3>
+                <h3 class="section-title">Forklifts</h3>
             </div>
             <div class="product-container">
                 <div class="product-card shadow">
@@ -48,6 +48,13 @@
                 </div>
             </div>
         </div>
+        <div class="brand-support">
+            <div class="manitou-logo logo"></div>
+            <div class="uni-carriers-logo logo"></div>
+            <div class="caterpillar-logo logo"></div>
+            <div class="toyota-logo logo"></div>
+            <div class="mitsubishi-logo logo"></div>
+        </div>
     </section>
 </template>
 
@@ -61,6 +68,8 @@
 
     #product-section {
         padding: 10rem 1rem;
+        position: relative;
+        margin-bottom: 2rem;
     }
 
     .product-container {
@@ -69,6 +78,66 @@
         align-items: flex-start;
         justify-content: space-between;
         flex-direction: row;
+    }
+
+    .brand-support {
+        background-color: #222335;
+        width: 90%;
+        padding: 1rem;
+        height: 140px;
+        position: absolute;
+        left: 0;
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 100px;
+    }
+    .brand-support::after {
+        content: " ";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: white;
+        right: 50px;
+        top: -6px;
+        transform: translateX(100%) rotate(15deg);
+    }
+
+    .brand-support .logo {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        margin-left: 60px;
+    }
+
+    .mitsubishi-logo {
+        background: url('../../assets/img/logos/Mitsubishi-logo.png');
+        width: 75px !important;
+        height: 75px !important;
+    }
+    .caterpillar-logo {
+        background: url('../../assets/img/logos/CatLogo.svg');
+        width: 80px !important;
+        height: 80px !important;
+    }
+    .uni-carriers-logo {
+        background: url('../../assets/img/logos/uni-carriers.svg');
+        width: 180px !important;
+        height: 180px !important;
+    }
+    .toyota-logo {
+        background: url('../../assets/img/logos/ToyotaLogo.svg');
+        width: 80px !important;
+        height: 80px !important;
+    }
+    .manitou-logo {
+        background: url('../../assets/img/logos/ManitouLogo.svg');
+        width: 180px !important;
+        height: 180px !important;
     }
 
     @media(max-width: 800px) {
