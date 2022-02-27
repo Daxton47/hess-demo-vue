@@ -6,37 +6,37 @@
                     <h5 class="modal-title">Contact Us</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form @submit.prevent.stop="submitForm" name="contactForm">
+                <form v-if="!hasSubmittedSuccess && !submissionFailed" @submit.prevent.stop="submitForm" name="contactForm">
                 <input type="hidden" name="form-name" value="contactForm" />
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12 col-lg-6 form-group mt-2">
-                                <label for="txtFirstName">Company Name:</label>
-                                <input type="text" name="firstName" v-model="form.firstName">
+                                <label for="txtCompanyName">Company Name:</label>
+                                <input type="text" id="txtCompanyName" name="companyName" v-model="form.companyName">
                             </div>
                             <div class="col-12 col-lg-6 form-group mt-2">
-                                <label for="txtFirstName">Contact Name:</label>
-                                <input type="text" name="lastName" v-model="form.lastName">
+                                <label for="txtContactName">Contact Name:</label>
+                                <input type="text" id="txtContactName" name="contactName" v-model="form.contactName">
                             </div>
                             <div class="col-12 col-lg-6 form-group mt-2">
-                                <label for="txtFirstName">Email:</label>
-                                <input type="email" name="email" v-model="form.email">
+                                <label for="txtEmail">Email:</label>
+                                <input type="email" id="txtEmail" name="email" v-model="form.email">
                             </div>
                             <div class="col-12 col-lg-6 form-group mt-2">
-                                <label for="txtFirstName">Phone:</label>
-                                <input type="tel" name="phone" v-model="form.phone">
+                                <label for="txtPhone">Phone:</label>
+                                <input type="tel" id="txtPhone" name="phone" v-model="form.phone">
                             </div>
                             <div class="col-12 form-group mt-4">
-                                <label for="txtFirstName">Subject:</label>
-                                <input type="text" name="subject" v-model="form.subject">
+                                <label for="txtSubject">Subject:</label>
+                                <input type="text" id="txtSubject" name="subject" v-model="form.subject">
                             </div>
                             <div class="col-12 form-group mt-4">
-                                <label for="txtFirstName">Delivery Date:</label>
-                                <input type="date" name="delivery" :min="minDate" v-model="form.deliveryDate">
+                                <label for="txtDelivery">Delivery Date:</label>
+                                <input type="date" id="txtDelivery" name="deliveryDate" :min="minDate" v-model="form.deliveryDate">
                             </div>
                             <div class="col-12 form-group mt-4">
                                 <label for="txtMessage">Message:</label>
-                                <textarea name="message" rows="6" v-model="form.message"></textarea>
+                                <textarea id="txtMessage" name="message" rows="6" v-model="form.message"></textarea>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center mt-2 py-2">
@@ -44,6 +44,27 @@
                         </div>
                     </div>
                 </form>
+                <div v-else-if="hasSubmittedSuccess && !submissionFailed" class="p-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-square-check fa-2x me-3 text-success"></i>
+                        <h4 class="m-0">Successfully Submitted Request!</h4>
+                    </div>
+                    <h5 class="mt-4">Keep an eye out for a response from our staff!</h5>
+                    <div class="d-flex justify-content-center mt-4">
+                        <button class="btn btn-success px-5" data-bs-target="#contactForm" data-bs-toggle="modal">Done</button>
+                    </div>
+                </div>
+                <div v-else class="p-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-circle-exclamation fa-2x me-3 text-danger"></i>
+                        <h4 class="m-0">Uh Oh!</h4>
+                    </div>
+                    <h5 class="mt-4">Seems like something went wrong with your request! Please reach out to our staff and we will get right on it!</h5>
+                    <div class="d-flex justify-content-center mt-4">
+                        <a class="btn btn-danger px-5" href="mailto:daxton@novotx.com">Email Support</a>
+                        <button class="btn btn-secondary px-5 ms-2" data-bs-target="#contactForm" data-bs-toggle="modal">Cancel</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -55,6 +76,9 @@ import axios from "axios"
 
 export default defineComponent({
     setup() {
+        const hasSubmittedSuccess = ref(false)
+        const submissionFailed = ref(false)
+
         const today = new Date()
         const monthStr = `${today.getMonth() + 1 < 10 ? '0' : ''}${today.getMonth() + 1}`
         const minDate = ref(`${today.getFullYear()}-${monthStr}-${today.getDate()}`)
@@ -68,24 +92,72 @@ export default defineComponent({
                     )
                     .join("&")
         }
+        const validEmail = (email) => {
+            return String(email)
+                    .toLowerCase()
+                    .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+        }
 
         const submitForm = ref(() => {
-            const axiosConfig = {
-                header: { "Content-Type": "application/x-www-form-urlencoded" }
+            let isValid = true
+            if (!form.value.companyName) {
+                isValid = false
+                document.getElementById("txtCompanyName").parentElement.classList.add('invalid')
             }
+            else document.getElementById("txtCompanyName").parentElement.classList.remove('invalid')
+
+            if (!form.value.contactName) {
+                isValid = false
+                document.getElementById("txtContactName").parentElement.classList.add('invalid')
+            }
+            else document.getElementById("txtContactName").parentElement.classList.remove('invalid')
+
+            if (!form.value.email ||
+                !validEmail(form.value.email)) {
+                isValid = false
+                document.getElementById("txtEmail").parentElement.classList.add('invalid')
+            }
+            else document.getElementById("txtEmail").parentElement.classList.remove('invalid')
+            
+            if (!form.value.message) {
+                isValid = false
+                document.getElementById("txtMessage").parentElement.classList.add('invalid')
+            }
+            else document.getElementById("txtMessage").parentElement.classList.remove('invalid')
+
+            if (!isValid) return
+
+            const axiosConfig = {
+                header: { "Content-Type": "application/x-www-form-urlencoded" },
+                validateStatus: (status) => {
+                    return status >= 200 && status < 300
+                }
+            }
+            const formData = encode({
+                "form-name": "contactForm",
+                ...form.value
+            })
+            console.log(formData)
+            
             axios.post(
                 "/",
-                encode({
-                    "form-name": "contactForm",
-                    ...form.value
-                }),
+                formData,
                 axiosConfig
             )
+            .then(() => {
+                hasSubmittedSuccess.value = true
+            })
+            .catch((error) => {
+                console.error(error)
+                submissionFailed.value = true
+            })
         })
         return {
             minDate,
             submitForm,
-            form
+            form,
+            hasSubmittedSuccess,
+            submissionFailed
         }
 
     }
@@ -104,6 +176,19 @@ export default defineComponent({
 </style>
 
 <style scoped>
+a {
+    color: white !important;
+}
+a:hover {
+    color: white !important;
+}
+
+.invalid input {
+    border-color: #ff5555 !important;
+}
+.invalid label {
+    color: #ff5555 !important;
+}
 
 .send-button {
     margin-top: .8rem;
