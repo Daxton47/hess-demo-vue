@@ -4,7 +4,7 @@
         <!-- <div class="moving-cog"></div> -->
         <div class="container">
             <div class="d-flex align-items-center">
-                <div style="width: 60%">
+                <div style="width: 60%" class="battery-animated">
                     <div class="battery-icon-container">
                         <div class="battery-icon"></div>
                         <div class="square square-1"></div>
@@ -22,11 +22,20 @@
                         <div class="hover-circle-lg"></div>
                     </div>
                 </div>
-                <div style="width: 40%" class="text-left">
-                    <h1 class="fw-bold">We know batteries.</h1>
-                    <hr style="width: 400px;">
-                    <h5 class="my-4">We are dedicated to finding the most efficient solution to your energy needs.</h5>
-                    <h5>Ready from some immediate ROI? Give us a call or drop us a line</h5>
+                <div class="d-flex flex-column intro-paragraph text-left" style="width: 45%">
+                    <div class="d-flex justify-content-center">
+                        <div class="battery-mobile-container">
+                            <div class="hover-circle"></div>
+                            <div class="hover-circle-lg"></div>
+                            <div class="battery-mobile"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="fw-bold">We know batteries.</h1>
+                        <hr style="width: 400px;">
+                        <h5 class="my-4">We are dedicated to finding the most efficient solution to your energy needs. Empower your day-to-day with our top-of-the-line industrial batteries.</h5>
+                        <h5>Ready from some immediate ROI? <a href="tel:+1(209)402-3044">Give us a call</a> or <a data-bs-toggle="modal" data-bs-target="#contactModal">request a quote</a></h5>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,8 +54,14 @@ export default defineComponent({
 
 <style scoped>
 
+a {
+    cursor: pointer;
+    color: var(--company-color) !important;
+    text-decoration: solid underline !important;
+}
+
 section {
-    padding: 20rem 0;
+    padding: 13rem 0;
     position: relative;
     overflow: hidden;
 }
@@ -61,6 +76,27 @@ section {
     top: -400px;
     transform: translateX(300px);
     animation: rotating-counter 100s linear infinite;
+}
+
+.battery-mobile-container {
+    display: none;
+    width: 70px;
+    height: 70px;
+    z-index: 100;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f1f2f3;
+    
+}
+.battery-mobile {
+    background: url('../../assets/img/BatteryIcon.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width: 70%;
+    height: 70%;
 }
 
 .battery-icon-container {
@@ -249,5 +285,69 @@ section {
 .battery-icon-container:hover .power-link-right {
     min-height: 400px;
     transition-delay: 1.8s;
+}
+
+@media(max-width: 1400px) {
+    .battery-icon-container:hover .power-link {
+        width: 220px;
+        transition-delay: .4s;
+    }
+
+    .power-link-down {
+        left: calc(100% + 219px);
+    }
+    .power-link-up {
+        left: calc(100% + 219px);
+    }
+    .power-link-top {
+        left: calc(100% + 219px + 4px);
+    }
+    .power-link-bottom {
+        left: calc(100% + 219px + 4px);
+    }
+    .power-link-right {
+        left: calc(100% + 219px + 4px + 650px);
+    }
+}
+
+@media(max-width: 992px) {
+    section {
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .battery-animated {
+        display: none;
+    }
+    .battery-mobile-container {
+        display: flex !important;
+        margin-bottom: 4rem;
+    }
+    .intro-paragraph {
+        width: 100% !important;
+    }
+
+    .hover-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 40px;
+        border: 3px dashed lightgray;
+        position: absolute;
+        animation: rotating 10s linear infinite;
+        transition: opacity .4s ease;
+        transition-delay: 2s;
+    }
+
+    .hover-circle-lg {
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+        border: 2px dashed lightgray;
+        position: absolute;
+        animation: rotating-counter 30s linear infinite;
+        opacity: .3;
+        transition: opacity .4s ease;
+        transition-delay: 2s;
+    }
 }
 </style>

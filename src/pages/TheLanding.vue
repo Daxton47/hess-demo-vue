@@ -9,7 +9,7 @@
                 <div class="text-center display-container">
                     <h1 class="section-title mb-3">Our Team</h1>
                     <hr class="mb-5" />
-                    <p class="brand-blurb">H.E.S.S. Energy Storage Systems is well known as an experienced and professional San Francisco -based lithium power source producer. We provide clients with top of the line services that cater to their specific project needs and management requirements, and all at the most competitive rates. Contact us today and find out how we can help.</p>
+                    <p class="brand-blurb">H.E.S.S. Energy Storage Systems is well known as an experienced and professional Northern California -based lithium power source producer. We provide clients with top of the line services that cater to their specific project needs and management requirements, and all at the most competitive rates. Contact us today and find out how we can help.</p>
                     
                     <a href="tel:8888888888" class="call-button">Call Us</a>
                 </div>
@@ -44,9 +44,10 @@ export default {
         var productSectionLocationTop = productRect.top + window.scrollY
         var productSectionLocationBottom = productRect.bottom + window.scrollY
 
-        var batteriesRect = document.getElementById('battery-battle').getBoundingClientRect()
+        var batteriesRect = document.getElementById('battery-intro').getBoundingClientRect()
+        var batteryBattleRect = document.getElementById('battery-battle').getBoundingClientRect()
         var batteriesLocationTop = batteriesRect.top + window.scrollY
-        var batteriesLocationBottom = batteriesRect.bottom + window.scrollY
+        var batteriesLocationBottom = batteryBattleRect.bottom + window.scrollY
 
         var companyRect = document.getElementById('companySection').getBoundingClientRect()
         var companyTop = companyRect.top + window.scrollY
@@ -61,19 +62,19 @@ export default {
                 landingNavs[i].classList.remove("active")
             }
 
-            if (window.scrollY < productSectionLocationTop) {
+            if (window.scrollY <= batteriesLocationTop - 2) {
                 var navHome = document.getElementById("navHome")
                 navHome.classList.add("active")
+            }
+            else if (window.scrollY >= batteriesLocationTop - 10 &&
+                window.scrollY < batteriesLocationBottom) {
+                var navBatteries = document.getElementById("navBatteries")
+                navBatteries.classList.add("active")
             }
             else if (window.scrollY >= productSectionLocationTop &&
                     window.scrollY < productSectionLocationBottom) {
                 var navProduct = document.getElementById("navProducts")
                 navProduct.classList.add("active")
-            }
-            else if (window.scrollY > batteriesLocationTop &&
-                    window.scrollY < batteriesLocationBottom) {
-                var navBatteries = document.getElementById("navBatteries")
-                navBatteries.classList.add("active")
             }
             else if (window.scrollY > companyTop &&
                     window.scrollY < companyBottom) {

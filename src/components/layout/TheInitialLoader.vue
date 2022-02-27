@@ -32,7 +32,7 @@ export default {
     right: 0;
     bottom: 0;
     background-color: var(--dark-background);
-    z-index: 10000;
+    z-index: 99999999;
     display: flex;
     align-items: center;
     justify-content: center;

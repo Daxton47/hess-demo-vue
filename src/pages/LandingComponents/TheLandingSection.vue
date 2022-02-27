@@ -9,11 +9,11 @@
                                 H.E.S.S. Energy Solutions
                             </h1>
                             <h3 class="sub-branding-display">The pioneers in lithium batteries.</h3>
-                            <div class="d-flex align-items-center" style="margin-top: 2rem;">
+                            <!-- <div class="d-flex align-items-center" style="margin-top: 2rem;">
                                 <button class="me-2">Shop Products</button>
                                 <button>Our Team</button>
-                            </div>
-                            <div id="lightbulb-animation"></div>
+                            </div> -->
+                            <!-- <div id="lightbulb-animation"></div> -->
                         </div>
                     </div>
                 </div> 
@@ -70,12 +70,26 @@ export default {
         height: 100vh;
         width: 100%;
         background-repeat: no-repeat;
-        background-image: url('../../assets/img/windmill-calm.jpg');
-        background-color: #222335;
+        background-image: url('../../assets/img/windmill.jpg');
         background-size: cover;
         background-attachment: fixed;
         position: relative;
-        background-position: 80% 80%;
+        background-position: 40% 0%;
+    }
+
+    .landing-section::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .landing-section h1,
+    .landing-section h3 {
+        position: relative;
     }
 
     @media(max-width: 2000px) {

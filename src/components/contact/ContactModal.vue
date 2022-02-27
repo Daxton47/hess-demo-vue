@@ -6,48 +6,92 @@
                     <h5 class="modal-title">Contact Us</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12 col-lg-6 form-group mt-2">
-                            <label for="txtFirstName">First Name:</label>
-                            <input type="text" id="txtFirstName">
+                <form @submit.prevent.stop="submitForm" action="/" data-netlify="true" id="contactForm" name="contactForm">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 col-lg-6 form-group mt-2">
+                                <label for="txtFirstName">Company Name:</label>
+                                <input type="text" name="firstName">
+                            </div>
+                            <div class="col-12 col-lg-6 form-group mt-2">
+                                <label for="txtFirstName">Contact Name:</label>
+                                <input type="text" name="lastName">
+                            </div>
+                            <div class="col-12 col-lg-6 form-group mt-2">
+                                <label for="txtFirstName">Email:</label>
+                                <input type="email" name="email">
+                            </div>
+                            <div class="col-12 col-lg-6 form-group mt-2">
+                                <label for="txtFirstName">Phone:</label>
+                                <input type="tel" name="phone">
+                            </div>
+                            <div class="col-12 form-group mt-4">
+                                <label for="txtFirstName">Subject:</label>
+                                <input type="text" name="subject">
+                            </div>
+                            <div class="col-12 form-group mt-4">
+                                <label for="txtFirstName">Delivery Date:</label>
+                                <input type="date" name="delivery" :min="minDate">
+                            </div>
+                            <div class="col-12 form-group mt-4">
+                                <label for="txtMessage">Message:</label>
+                                <textarea name="message" rows="6"></textarea>
+                            </div>
                         </div>
-                        <div class="col-12 col-lg-6 form-group mt-2">
-                            <label for="txtFirstName">Last Name:</label>
-                            <input type="text" id="txtLastName">
-                        </div>
-                        <div class="col-12 col-lg-6 form-group mt-2">
-                            <label for="txtFirstName">Email:</label>
-                            <input type="email" id="txtEmail">
-                        </div>
-                        <div class="col-12 col-lg-6 form-group mt-2">
-                            <label for="txtFirstName">Phone:</label>
-                            <input type="tel" id="txtPhone">
-                        </div>
-                        <div class="col-12 form-group mt-4">
-                            <label for="txtFirstName">Subject:</label>
-                            <input type="text" id="txtSubject">
-                        </div>
-                        <div class="col-12 form-group mt-4">
-                            <label for="txtMessage">Message:</label>
-                            <textarea name="message" id="txtMessage" rows="6"></textarea>
+                        <div class="d-flex justify-content-center mt-2 py-2">
+                            <button type="submit" class="send-button">Send</button>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center mt-2 py-2">
-                        <button class="send-button">Send</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
+    setup() {
+        const today = new Date()
+        const monthStr = `${today.getMonth() + 1 < 10 ? '0' : ''}${today.getMonth() + 1}`
+        const minDate = ref(`${today.getFullYear()}-${monthStr}-${today.getDate()}`)
+
+        const name = ref()
+        const email = ref()
+
+        const submitForm = ref(() => {
+            let contactForm = document.getElementById("contactForm")
+            let formData = new FormData(contactForm)
+            formData.append("form-name", "contactForm")
+
+            fetch("/submit-quote", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+        })
+        return {
+            minDate,
+            submitForm,
+            name,
+            email
+        }
+
+    }
 })
 </script>
+
+<style>
+
+    .modal-backdrop {
+        z-index: 9999999 !important;
+    }
+    .modal {
+        z-index: 99999999 !important;
+    }
+
+</style>
 
 <style scoped>
 

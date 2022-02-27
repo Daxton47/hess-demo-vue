@@ -17,7 +17,7 @@
         </div>
         <div>
             <div class="navigation">
-                <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#contactModal">Get a Free Quote</a>
+                <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#contactModal">Request a Quote</a>
             </div>
         </div>
         <div class="mobile-spacer"></div>
@@ -95,6 +95,7 @@ export default {
         border-bottom: 1px solid;
         border-color: rgba(0,0,0,0.1);
         transition: all .4s ease;
+        z-index: 9999999;
     }
 
     .side-nav {
@@ -105,7 +106,7 @@ export default {
         background-color: rgba(0,0,0,0.6);
         backdrop-filter: blur(12px);
         height: 100vh;
-        z-index: 100000;
+        z-index: 99999999;
         display: none;
         font-weight: bolder;
     }
