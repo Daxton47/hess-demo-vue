@@ -8,7 +8,7 @@
                             <h1 class="branding-display">
                                 H.E.S.S. Energy Solutions
                             </h1>
-                            <h3 class="sub-branding-display">The pioneers in lithium batteries.</h3>
+                            <h3 class="sub-branding-display">Our results are shocking.</h3>
                             <!-- <div class="d-flex align-items-center" style="margin-top: 2rem;">
                                 <button class="me-2">Shop Products</button>
                                 <button>Our Team</button>

@@ -8,7 +8,7 @@
                         <div id="hessLogo"></div>
                         <div class="d-flex flex-column mt-2 ms-3">
                             <h4 class="m-0">H.E.S.S.</h4>
-                            <span>The pioneers in lithium batteries.</span>
+                            <span>Our results are shocking.</span>
                         </div>
                     </div>
                 </div>
@@ -51,30 +51,33 @@
 <style scoped>
 
     #footer {
-        color: #fff;
-        background-color: var(--dark-background);
+        color: #222;
+        background-color: #dcdfe2;
         padding: 8rem 0;
     }
 
     #hessLogo {
         width: 140px;
         height: 140px;
-        background: url('../../assets/logos/hess-logo-white.svg');
+        background: url('../../assets/logos/hess-logo.png');
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;
         margin-top: -40px;
     }
 
-    .contact-us i {
+    .contact-us i,
+    .links i {
         color: var(--company-color);
     }
 
-    .contact-us a {
-        color: #fff !important;
+    .contact-us a,
+    .links a {
+        color: #222 !important;
     }
 
-    .contact-us a:hover {
+    .contact-us a:hover,
+    .links a:hover {
         color: var(--company-color) !important;
     }
 
