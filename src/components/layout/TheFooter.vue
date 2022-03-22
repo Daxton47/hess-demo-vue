@@ -15,7 +15,7 @@
                 <div class="col-12 col-xl-4 contact-us mt-2">
                     <h4 class="fst-italic">// Contact Us</h4>
                     <div class="d-flex align-items-center mt-3">
-                        <i class="fas fa-envelope"></i><a href="mailto:whess@hessprecisionlaser.com" class="ms-2">whess@hessprecisionlaser.com</a>
+                        <i class="fas fa-envelope"></i><a href="mailto:quotes@hessenergysystems.com" class="ms-2">quotes@hessenergysystems.com</a>
                     </div>
                     <div class="d-flex align-items-center mt-2">
                         <i class="fas fa-phone-alt"></i><a href="tel:+1(209)402-3044" class="ms-2">+1 (209) 402-3044</a>

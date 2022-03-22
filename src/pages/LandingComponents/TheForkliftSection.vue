@@ -1,5 +1,5 @@
 <template>
-    <section id="product-section">
+    <section id="forklift-section">
         <div class="container">
             <div class="d-flex">
                 <div class="content-container">
@@ -67,7 +67,7 @@
         margin-right: 5px;
     }
 
-    #product-section {
+    #forklift-section {
         padding: 5rem 1rem 10rem 1rem;
         position: relative;
         margin-bottom: 2rem;

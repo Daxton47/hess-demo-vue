@@ -1,9 +1,10 @@
 <template>
-    <div class="position-relative" data-bs-spy="scroll" data-bs-target="#app-nav">
+    <div class="position-relative">
         <TheLandingSection :isScrolled="pageScrolled" />
         <TheBatteryIntroduction />
         <TheBatteryBattle />
-        <TheProductSection />
+        <TheForkliftSection />
+        <TheProductsSection />
         <section id="companySection">
             <div class="container text-white">
                 <div class="text-center display-container">
@@ -22,15 +23,17 @@
 <script>
 import TheLandingSection from './LandingComponents/TheLandingSection.vue'
 import TheBatteryIntroduction from './LandingComponents/TheBatteryIntroduction.vue'
-import TheProductSection from './LandingComponents/TheProductSection.vue'
+import TheForkliftSection from './LandingComponents/TheForkliftSection.vue'
 import TheBatteryBattle from './LandingComponents/TheBatteryBattle.vue'
+import TheProductsSection from './LandingComponents/TheProductsSection.vue'
 
 export default {
     components: {
         TheLandingSection,
         TheBatteryIntroduction,
-        TheProductSection,
-        TheBatteryBattle
+        TheForkliftSection,
+        TheBatteryBattle,
+        TheProductsSection
     },
     data() {
         return {
@@ -40,14 +43,18 @@ export default {
         }
     },
     mounted: function() {
-        var productRect = document.getElementById("product-section").getBoundingClientRect()
-        var productSectionLocationTop = productRect.top + window.scrollY
-        var productSectionLocationBottom = productRect.bottom + window.scrollY
-
         var batteriesRect = document.getElementById('battery-intro').getBoundingClientRect()
         var batteryBattleRect = document.getElementById('battery-battle').getBoundingClientRect()
         var batteriesLocationTop = batteriesRect.top + window.scrollY
         var batteriesLocationBottom = batteryBattleRect.bottom + window.scrollY
+
+        var forkliftRect = document.getElementById('forklift-section').getBoundingClientRect()
+        var forkliftSectionLocationTop = forkliftRect.top + window.scrollY
+        var forkliftSectionLocationBottom = forkliftRect.bottom + window.scrollY
+
+        var productRect = document.getElementById("products-section").getBoundingClientRect()
+        var productSectionLocationTop = productRect.top + window.scrollY
+        var productSectionLocationBottom = productRect.bottom + window.scrollY
 
         var companyRect = document.getElementById('companySection').getBoundingClientRect()
         var companyTop = companyRect.top + window.scrollY
@@ -67,16 +74,21 @@ export default {
                 navHome.classList.add("active")
             }
             else if (window.scrollY >= batteriesLocationTop - 10 &&
-                window.scrollY < batteriesLocationBottom) {
+                window.scrollY < batteriesLocationBottom - 100) {
                 var navBatteries = document.getElementById("navBatteries")
                 navBatteries.classList.add("active")
             }
-            else if (window.scrollY >= productSectionLocationTop &&
-                    window.scrollY < productSectionLocationBottom) {
+            else if (window.scrollY >= forkliftSectionLocationTop - 100 &&
+                window.scrollY < forkliftSectionLocationBottom + 1) {
+                    var navForklifts = document.getElementById('navForklifts')
+                    navForklifts.classList.add('active')
+                }
+            else if (window.scrollY >= productSectionLocationTop - 100 &&
+                    window.scrollY < productSectionLocationBottom - 100) {
                 var navProduct = document.getElementById("navProducts")
                 navProduct.classList.add("active")
             }
-            else if (window.scrollY > companyTop &&
+            else if (window.scrollY > companyTop - 100 &&
                     window.scrollY < companyBottom) {
                 var navCompany = document.getElementById("navTeam")
                 navCompany.classList.add("active")
@@ -154,4 +166,13 @@ export default {
         .call-button:hover {
             background-color: var(--company-color-dark);
         }
+
+    @media(max-width: 500px) {
+        .display-container {
+            padding: 2rem .5rem;
+        }
+        #companySection {
+            padding: 10rem .5rem;
+        }
+    }
 </style>

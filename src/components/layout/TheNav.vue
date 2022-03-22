@@ -9,7 +9,10 @@
                 <a href="#battery-intro" class="nav-link landing-nav" id="navBatteries">Batteries</a>
             </div>
             <div class="navigation">
-                <a href="#product-section" class="nav-link landing-nav" id="navProducts">Forklifts</a>
+                <a href="#forklift-section" class="nav-link landing-nav" id="navForklifts">Forklifts</a>
+            </div>
+            <div class="navigation">
+                <a href="#products-section" class="nav-link landing-nav" id="navProducts">Products</a>
             </div>
             <div class="navigation">
                 <a href="#companySection" class="nav-link landing-nav" id="navTeam">Our Team</a>
@@ -41,10 +44,13 @@
                     <a href="#home" class="text-white landing-nav" id="navMobileHome"><h5 class="text-center fw-bolder">Home</h5></a>
                 </div>
                 <div class="py-4">
-                    <a href="#product-section" class="text-white landing-nav" id="navMobileProducts"><h5 class="text-center fw-bolder">Forklifts</h5></a>
+                    <a href="#battery-battle" class="text-white landing-nav" id="navMobileBatteries"><h5 class="text-center fw-bolder">Batteries</h5></a>
                 </div>
                 <div class="py-4">
-                    <a href="#battery-battle" class="text-white landing-nav" id="navMobileBatteries"><h5 class="text-center fw-bolder">Batteries</h5></a>
+                    <a href="#forklift-section" class="text-white landing-nav" id="navMobileForklifts"><h5 class="text-center fw-bolder">Forklifts</h5></a>
+                </div>
+                <div class="py-4">
+                    <a href="#products-section" class="text-white landing-nav" id="navMobileProducts"><h5 class="text-center fw-bolder">Products</h5></a>
                 </div>
                 <div class="py-4">
                     <a href="#companySection" class="text-white landing-nav" id="navMobileTeam"><h5 class="text-center fw-bolder">Our Team</h5></a>
